@@ -1,0 +1,18 @@
+<!-- Behavior tree that sequentially navigates locations naively -->
+<root main_tree_to_execute = "MainTree" >
+  <BehaviorTree ID="MainTree">
+    <Sequence name="sequence">
+      <SetBlackboard output_key="loc" value="1" />
+      <Retry name="retry">
+        <Patrol name="Patrol" loc_in="{loc}" loc_out="{loc}" cart_loc_out="{cart_loc}"/>
+      </Retry>
+      <GoToCart name="GotoCart" cart_loc_in="{cart_loc}"/>
+    </Sequence>
+  </BehaviorTree>
+</root>
+
+<!--
+      add
+            <OpenGripper/>
+      <DockCart name="DockCart" />
+      <ParkCart name="ParkCart" /> later-->
